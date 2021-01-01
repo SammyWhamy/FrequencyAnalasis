@@ -27,7 +27,7 @@ namespace LetterFrequency
         {
             public string Char { get; set; }
             public int Amount { get; set; }
-            public double Percentage { get; set; }
+            public string Percentage { get; set; }
         }
         public MainWindow()
         {
@@ -59,21 +59,21 @@ namespace LetterFrequency
             }
 
             List<Character> found = new List<Character>();
-            Regex filter = new Regex(@".", RegexOptions.Compiled);
+            Regex filter = new Regex(@"[^\s]", RegexOptions.Compiled);
 
             if((bool)_instance.Btn1.IsChecked)
             {
-                filter = new Regex(@"[a-z]", RegexOptions.Compiled);
+                filter = new Regex(@"[a-zA-Z]", RegexOptions.Compiled);
             }
             else if ((bool)_instance.Btn2.IsChecked)
             {
                 filter = new Regex(@"[0-9]", RegexOptions.Compiled);
             } else if ((bool)_instance.Btn3.IsChecked)
             {
-                filter = new Regex(@"[a-z0-9]", RegexOptions.Compiled);
+                filter = new Regex(@"[a-zA-Z0-9]", RegexOptions.Compiled);
             } else if ((bool)_instance.Btn4.IsChecked)
             {
-                filter = new Regex(@".", RegexOptions.Compiled);
+                filter = new Regex(@"[^\s]", RegexOptions.Compiled);
             } else
             {
                 MessageBox.Show("Please select a mode to use", "No mode selected", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -81,11 +81,17 @@ namespace LetterFrequency
             }
 
             string text = File.ReadAllText(filePath);
+            if((bool)_instance.Case.IsChecked)
+            {
+                text = text.ToLower();
+            }
             char[] chars = text.ToCharArray();
             char[] filtered = chars.Where(c => filter.Match(c.ToString()).Success).ToArray();
-            foreach(char c in filtered)
+            char[] filteredDist = filtered.Distinct().ToArray();
+            foreach(char ch in filteredDist)
             {
-
+                int count = text.Length - text.Replace(ch.ToString(), "").Length;
+                found.Add(new Character() { Char = ch.ToString(), Amount = count, Percentage = ((Convert.ToDouble(count)/Convert.ToDouble(filtered.Length))*Convert.ToDouble(100)).ToString("F")+"%" });
             }
 
             _instance.list.ItemsSource = found;

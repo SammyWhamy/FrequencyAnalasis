@@ -9,9 +9,9 @@
     <Grid>
         <Button Name="InputFile" Content="Choose File (txt)" HorizontalAlignment="Left" Height="34" Margin="318,10,0,0" VerticalAlignment="Top" Width="179" Click="Input_Click"/>
         <RadioButton Name="Btn1" Content="RadioButton" HorizontalAlignment="Left" Height="17" Margin="318,61,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="-0.12,-0.01" IsChecked="True"/>
-        <RadioButton Name="Btn2" Content="RadioButton" HorizontalAlignment="Left" Height="17" Margin="318,127,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="-0.12,-0.01" IsChecked="False"/>
+        <RadioButton Name="Btn2" Content="RadioButton" HorizontalAlignment="Left" Height="17" Margin="318,83,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="-0.12,-0.01" IsChecked="False"/>
         <RadioButton Name="Btn3" Content="RadioButton" HorizontalAlignment="Left" Height="17" Margin="318,105,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="-0.12,-0.01" IsChecked="False"/>
-        <RadioButton Name="Btn4" Content="RadioButton" HorizontalAlignment="Left" Height="17" Margin="318,83,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="-0.12,-0.01" IsChecked="False"/>
+        <RadioButton Name="Btn4" Content="RadioButton" HorizontalAlignment="Left" Height="17" Margin="318,127,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="-0.12,-0.01" IsChecked="False"/>
         <ListView Name="list" HorizontalAlignment="Left" Height="585" Margin="10,10,0,0" VerticalAlignment="Top" Width="300">
             <ListView.View>
                 <GridView>
@@ -25,6 +25,8 @@
         <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="17" Margin="340,80,0,0" TextWrapping="Wrap" Text="DIGITS (0-9) ONLY" VerticalAlignment="Top" Width="157" Opacity="0.9" BorderBrush="White"/>
         <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="17" Margin="340,102,0,0" TextWrapping="Wrap" Text="LETTERS AND DIGITS" VerticalAlignment="Top" Width="157" Opacity="0.9" BorderBrush="White"/>
         <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="17" Margin="340,124,0,0" TextWrapping="Wrap" Text="ALL CHARACTERS" VerticalAlignment="Top" Width="157" Opacity="0.9" BorderBrush="White"/>
-        <Button Content="Analyze" HorizontalAlignment="Left" Height="32" Margin="318,172,0,0" VerticalAlignment="Top" Width="179" Click="Analyze_Click"/>
+        <Button Content="Analyze" HorizontalAlignment="Left" Height="32" Margin="318,186,0,0" VerticalAlignment="Top" Width="179" Click="Analyze_Click"/>
+        <CheckBox Name="Case" Content="CheckBox" HorizontalAlignment="Left" Height="24" Margin="318,157,0,0" VerticalAlignment="Top" Width="17"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="17" Margin="340,157,0,0" TextWrapping="Wrap" Text="CASE INSENSITIVE" VerticalAlignment="Top" Width="157" Opacity="0.9" BorderBrush="White"/>
     </Grid>
 </Window>
